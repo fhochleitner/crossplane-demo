@@ -1,0 +1,8 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Instance
+metadata:
+  labels:
+    testing.squer.io/instance-name: public-instance
+  name: public-instance
+spec:
+  forProvider:

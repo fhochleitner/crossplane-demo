@@ -3,8 +3,7 @@
 
 if [[ -z "$1" ]]; then
   echo """Usage: $0 [install|setup|start|terminate]
-  install: Install Operator Lifecycle Management, AWS Credentials, and ArgoCD Operator
-  setup: Setup ArgoCD Applications
+  install: Prepare cluster for demo
   start: start port-forwarding
   terminate: Terminate port-forwarding
   """
@@ -15,10 +14,12 @@ if [[ "install" == "$1" ]]; then
   # Install Operator Lifecycle Management
   curl -L https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.27.0/install.sh -o install.sh && chmod +x install.sh && ./install.sh v0.27.0
   # AWS Credentials
-  kubectl create secret generic aws-secret -n crossplane-system --from-file .cred/aws-aws-credentials
+  kubectl create ns crossplane-system
+  kubectl create secret generic aws-secret -n crossplane-system --from-file creds=.creds/aws-credentials
   # Install ArgoCD Operator
-  helm install -n gitops-system argocd argo/argo-cd --version 6.7.3 --wait
+  helm install -n gitops-system argocd argo/argo-cd --version 6.7.3 --wait --create-namespace
   kubectl apply -f .creds/repo.yaml
+  kubectl apply -f argocd/parent-application.yaml
 
   exit 0
 fi
@@ -34,16 +35,6 @@ if [[ "start" == "$1" ]]; then
 
   exit 0
 fi
-
-if [[ "setup" == "$1" ]]; then
-  # Setup ArgoCD
-  echo "Creating ArgoCD Applications"
-
-  # TODO
-
-  exit 0
-fi
-
 
 if [[ "terminate" == "$1" ]]; then
   # Terminate ArgoCD

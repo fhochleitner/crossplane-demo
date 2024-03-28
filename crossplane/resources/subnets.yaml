@@ -1,0 +1,37 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: public-subnet
+  labels:
+    testing.squer.io/subnet-name: "public-subnet"
+spec:
+  providerConfigRef:
+    name: aws-config
+  forProvider:
+    cidrBlock: 10.0.1.0/24
+    region: eu-west-1
+    tags:
+      Name: "PublicSubnet"
+    mapPublicIpOnLaunch: true
+    vpcIdSelector:
+      matchLabels:
+        testing.squer.io/vpc-name: "main-vpc"
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: private-subnet
+  labels:
+    testing.squer.io/subnet-name: "private-subnet"
+spec:
+  providerConfigRef:
+      name: aws-config
+  forProvider:
+    cidrBlock: 10.0.2.0/24
+    region: eu-west-1
+    tags:
+      Name: "PrivateSubnet"
+    mapPublicIpOnLaunch: true
+    vpcIdSelector:
+      matchLabels:
+        testing.squer.io/vpc-name: "main-vpc"

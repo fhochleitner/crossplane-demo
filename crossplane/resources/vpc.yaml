@@ -1,0 +1,14 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: VPC
+metadata:
+  name: main-vpc
+  labels:
+    testing.squer.io/vpc-name: "main-vpc"
+spec:
+  providerConfigRef:
+      name: aws-config
+  forProvider:
+    cidrBlock: 10.0.0.0/16
+    region: eu-west-1
+    tags:
+       Name: "MainVPC"
