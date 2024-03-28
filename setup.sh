@@ -38,6 +38,7 @@ fi
 if [[ "setup" == "$1" ]]; then
   # Setup ArgoCD
   echo "Creating ArgoCD Applications"
+
   # TODO
 
   exit 0
