@@ -1,0 +1,9 @@
+apiVersion: s3.aws.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  name: crossplane-bucket-068f99c6-4f7c-4ff1-8e38-aae51e8b6705
+spec:
+  forProvider:
+    region: eu-west-1
+  providerConfigRef:
+    name: aws-config
