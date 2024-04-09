@@ -180,7 +180,7 @@ spec:
           fromConnectionSecretKey: kubeconfig
     - name: eks-cluster-role
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -216,7 +216,7 @@ spec:
                 fmt: "control-plane-%s"
     - name: eks-cluster-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -237,7 +237,7 @@ spec:
                 fmt: "eks-cluster-policy-%s"
     - name: eks-service-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -258,7 +258,7 @@ spec:
                 fmt: "eks-service-policy-%s"
     - name: eks-vpcresource-controller-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -279,7 +279,7 @@ spec:
                 fmt: "eks-vpc-policy-%s"
     - name: eks-oidc
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: OpenIDConnectProvider
         spec:
           forProvider:
@@ -304,7 +304,7 @@ spec:
 # EKS Managed Node groups
     - name: eks-managed-nodegroups
       base:
-        apiVersion: eks.aws.crossplane.io/v1alpha1
+        apiVersion: eks.aws.upbound.io/v1alpha1
         kind: NodeGroup
         spec:
           forProvider:
@@ -353,7 +353,7 @@ spec:
             fromFieldPath: Required
     - name: eks-managed-nodegroup-iam-role
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -402,7 +402,7 @@ spec:
                 fmt: "managed-node-%s"
     - name: eks-managed-nodegroup-worker-node-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -423,7 +423,7 @@ spec:
                 fmt: "eks-worker-ng-%s"
     - name: eks-managed-nodegroup-container-registry-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -444,7 +444,7 @@ spec:
                 fmt: "eks-worker-ecr-%s"
     - name: eks-managed-nodegroup-ssm-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -465,7 +465,7 @@ spec:
                 fmt: "eks-worker-ssm-%s"
     - name: eks-managed-nodegroup-cni-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -487,7 +487,7 @@ spec:
     # CSI addon configuration
     - name: csi-role
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -541,7 +541,7 @@ spec:
           toFieldPath: spec.forProvider.name
     - name: csi-policy-attachment
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -562,7 +562,7 @@ spec:
                 fmt: "eks-worker-csi-%s"
     - name: eks-csi-driver
       base:
-        apiVersion: eks.aws.crossplane.io/v1alpha1
+        apiVersion: eks.aws.upbound.io/v1alpha1
         kind: Addon
         metadata:
         spec:
@@ -701,7 +701,7 @@ spec:
     # Cluster AutoScaler Policy and Roles
     - name: cas-policy
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Policy
         metadata:
           labels:
@@ -762,7 +762,7 @@ spec:
           toFieldPath: spec.forProvider.name
     - name: cas-cluster-as-role
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -816,7 +816,7 @@ spec:
           toFieldPath: spec.forProvider.name
     - name: cas-role-policy-attachment
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:

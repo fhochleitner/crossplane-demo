@@ -156,7 +156,7 @@ spec:
           toFieldPath: spec.roleName
     - name: s3-bucket
       base:
-        apiVersion: s3.aws.crossplane.io/v1beta1
+        apiVersion: s3.aws.upbound.io/v1beta1
         kind: Bucket
         spec:
           deletionPolicy: Orphan # For EMR job data retention
@@ -184,7 +184,7 @@ spec:
           toFieldPath: status.bucketArn
     - name: job-run
       base:
-        apiVersion: emrcontainers.aws.crossplane.io/v1alpha1
+        apiVersion: emrcontainers.aws.upbound.io/v1alpha1
         kind: JobRun
         spec:
           forProvider:

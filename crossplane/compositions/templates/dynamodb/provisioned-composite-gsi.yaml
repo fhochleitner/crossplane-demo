@@ -83,7 +83,7 @@ spec:
           name: region
           fromFieldPath: spec.forProvider.region
       base:
-        apiVersion: dynamodb.aws.crossplane.io/v1alpha1
+        apiVersion: dynamodb.aws.upbound.io/v1alpha1
         kind: Table
         spec:
           deletionPolicy: Delete

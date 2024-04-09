@@ -36,7 +36,7 @@ spec:
   resources:
     - name: vpc
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: VPC
         spec:
           forProvider:
@@ -79,7 +79,7 @@ spec:
 # PUBLIC SUBNET1
     - name: public-subnet1
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet
         metadata:
           labels:
@@ -120,7 +120,7 @@ spec:
 # PUBLIC SUBNET2
     - name: public-subnet2
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet
         metadata:
           labels:
@@ -161,7 +161,7 @@ spec:
 # PUBLIC SUBNET3
     - name: public-subnet3
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet
         metadata:
           labels:
@@ -202,7 +202,7 @@ spec:
 # Private Subnet1
     - name: private-subnet1
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet
         metadata:
           labels:
@@ -243,7 +243,7 @@ spec:
 # Private Subnet2
     - name: private-subnet2
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet
         metadata:
           labels:
@@ -284,7 +284,7 @@ spec:
 # Private Subnet3
     - name: private-subnet3
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet
         metadata:
           labels:
@@ -325,7 +325,7 @@ spec:
 # Internet Gateway
     - name: internetgateway
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: InternetGateway
         metadata:
           labels:
@@ -351,7 +351,7 @@ spec:
 # Single NAT Gateway for Private Subnets
     - name: single-natgateway
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: NATGateway
         metadata:
           labels:
@@ -389,7 +389,7 @@ spec:
 # ElasticIp for NAT Gateway
     - name: elastic-ip
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Address
         metadata:
           labels:
@@ -414,7 +414,7 @@ spec:
 # Public Route Table
     - name: public-route-table
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: RouteTable
         spec:
           forProvider:
@@ -468,7 +468,7 @@ spec:
 # Private Route Table
     - name: private-route-table
       base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: RouteTable
         spec:
           forProvider:

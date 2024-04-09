@@ -24,7 +24,7 @@ spec:
   resources:
     - name: iam-role
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Role
         spec:
           forProvider:
@@ -71,7 +71,7 @@ spec:
                 }
     - name: policy-attachment-1
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -86,7 +86,7 @@ spec:
           toFieldPath: spec.forProvider.policyArn
     - name: policy-attachment-2
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:

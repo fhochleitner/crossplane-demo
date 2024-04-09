@@ -13,7 +13,7 @@ spec:
     kind: XRedisCluster
   resources:
     - base:
-        apiVersion: ec2.aws.crossplane.io/v1beta1
+        apiVersion: ec2.aws.upbound.io/v1beta1
         kind: SecurityGroup
         metadata: {}
         spec:
@@ -116,7 +116,7 @@ spec:
           fromFieldPath: status.atProvider.securityGroupID
           toFieldPath: status.securityGroupID
     - base:
-        apiVersion: cache.aws.crossplane.io/v1alpha1
+        apiVersion: cache.aws.upbound.io/v1alpha1
         kind: CacheSubnetGroup
         metadata: {}
         spec:
@@ -157,7 +157,7 @@ spec:
           fromFieldPath: status.atProvider.vpcId
           toFieldPath: status.vpcId
     - base:
-        apiVersion: cache.aws.crossplane.io/v1beta1
+        apiVersion: cache.aws.upbound.io/v1beta1
         kind: ReplicationGroup
         metadata: {}
         spec:

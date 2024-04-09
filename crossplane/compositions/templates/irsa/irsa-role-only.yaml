@@ -27,7 +27,7 @@ spec:
   resources:
     - name: iam-role
       base:
-        apiVersion: iam.aws.crossplane.io/v1beta1
+        apiVersion: iam.aws.upbound.io/v1beta1
         kind: Role
         spec:
           forProvider:
