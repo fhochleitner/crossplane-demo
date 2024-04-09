@@ -1,71 +1,17 @@
-apiVersion: eks.aws.upbound.io/v1beta1
-kind: Cluster
+apiVersion: eks.sarathy.io/v1beta1
+kind: EKSCluster
 metadata:
-  annotations:
-    meta.squer.io/cluster-id: eks/v1beta1/demo-cluster
-    uptest.squer.io/timeout: "2400"
-  labels:
-    testing.squer.io/cluster-name: demo-cluster
-  name: demo-eks-cluster
+  name: crossplane-flux-cluster
 spec:
-  providerConfigRef:
-    name: aws-config
-  forProvider:
+  parameters:
     region: eu-west-1
-    vpcConfig:
-      - subnetIdRefs:
-          - name: public-subnet
-          - name: private-subnet
----
-apiVersion: ec2.aws.upbound.io/v1beta1
-kind: VPC
-metadata:
-  name: main-vpc
-  labels:
-    testing.squer.io/vpc-name: "main-vpc"
-spec:
-  providerConfigRef:
-    name: aws-config
-  forProvider:
-    cidrBlock: 10.0.0.0/16
-    region: eu-west-1
-    tags:
-      Name: "MainVPC"
----
-apiVersion: ec2.aws.upbound.io/v1beta1
-kind: Subnet
-metadata:
-  name: public-subnet
-  labels:
-    testing.squer.io/subnet-name: "public-subnet"
-spec:
-  providerConfigRef:
-    name: aws-config
-  forProvider:
-    cidrBlock: 10.0.1.0/24
-    region: eu-west-1
-    tags:
-      Name: "PublicSubnet"
-    mapPublicIpOnLaunch: true
-    vpcIdSelector:
-      matchLabels:
-        testing.squer.io/vpc-name: "main-vpc"
----
-apiVersion: ec2.aws.upbound.io/v1beta1
-kind: Subnet
-metadata:
-  name: private-subnet
-  labels:
-    testing.squer.io/subnet-name: "private-subnet"
-spec:
-  providerConfigRef:
-    name: aws-config
-  forProvider:
-    cidrBlock: 10.0.2.0/24
-    region: eu-west-1
-    tags:
-      Name: "PrivateSubnet"
-    mapPublicIpOnLaunch: true
-    vpcIdSelector:
-      matchLabels:
-        testing.squer.io/vpc-name: "main-vpc"
+    vpc-name: "crossplane-flux-vpc"
+    vpc-cidrBlock: "10.20.0.0/16"
+
+    subnet1-public-name: "public-worker-1 "
+    subnet1-public-cidrBlock: "10.20.1.0/28"
+    subnet1-public-availabilityZone: "eu-west-1a
+
+    subnet2-public-name: "public-worker-2"
+    subnet2-public-cidrBlock: "10.20.2.0/28"
+    subnet2-public-availabilityZone: "eu-west-1b"
