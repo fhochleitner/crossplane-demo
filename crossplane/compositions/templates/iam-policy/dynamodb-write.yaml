@@ -36,7 +36,7 @@ spec:
   resources:
     - name: write-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: Policy
         spec:
           deletionPolicy: Delete

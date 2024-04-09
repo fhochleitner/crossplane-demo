@@ -231,7 +231,7 @@ spec:
           toFieldPath: spec.forProvider.namespace
     - name: s3-bucket-users
       base:
-        apiVersion: s3.aws.upbound.io/v1beta1
+        apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
         spec:
           forProvider:
@@ -274,7 +274,7 @@ spec:
     # IRSA bucket access for SA named jupyter-user
     - name: s3-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: Policy
         spec:
           forProvider:
@@ -342,7 +342,7 @@ spec:
                   }
     - name: single-user-role
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -388,7 +388,7 @@ spec:
             fromFieldPath: Required
     - name: s3-policy-attachment
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:

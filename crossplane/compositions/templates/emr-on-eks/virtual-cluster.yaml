@@ -112,7 +112,7 @@ spec:
           patchSetName: namespace
     - name: virtual-cluster
       base:
-        apiVersion: emrcontainers.aws.upbound.io/v1alpha1
+        apiVersion: emrcontainers.aws.crossplane.io/v1alpha1
         kind: VirtualCluster
         spec:
           forProvider:

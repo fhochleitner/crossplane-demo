@@ -82,7 +82,7 @@ spec:
           fromConnectionSecretKey: kubeconfig
     - name: eks-cluster-role
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -111,7 +111,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-cluster-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -125,7 +125,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-service-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -139,7 +139,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-vpcresource-controller-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -155,7 +155,7 @@ spec:
 # EKS Managed Node groups
     - name: eks-managed-nodegroups
       base:
-        apiVersion: eks.aws.upbound.io/v1alpha1
+        apiVersion: eks.aws.crossplane.io/v1alpha1
         kind: NodeGroup
         spec:
           forProvider:
@@ -200,7 +200,7 @@ spec:
 
     - name: eks-managed-nodegroup-iam-role
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: Role
         metadata:
           labels:
@@ -229,7 +229,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-managed-nodegroup-worker-node-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -243,7 +243,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-managed-nodegroup-container-registry-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -257,7 +257,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-managed-nodegroup-ssm-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
@@ -271,7 +271,7 @@ spec:
           patchSetName: common-parameters
     - name: eks-managed-nodegroup-cni-policy
       base:
-        apiVersion: iam.aws.upbound.io/v1beta1
+        apiVersion: iam.aws.crossplane.io/v1beta1
         kind: RolePolicyAttachment
         spec:
           forProvider:
