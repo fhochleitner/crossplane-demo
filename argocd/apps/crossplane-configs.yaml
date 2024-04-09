@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: crossplane-configs
-  namespace: gitops-system
+  namespace: crossplane-system
 spec:
   destination:
     namespace: crossplane-system

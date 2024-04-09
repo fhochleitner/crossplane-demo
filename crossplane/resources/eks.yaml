@@ -10,7 +10,7 @@ spec:
 
     subnet1-public-name: "public-worker-1 "
     subnet1-public-cidrBlock: "10.20.1.0/28"
-    subnet1-public-availabilityZone: "eu-west-1a
+    subnet1-public-availabilityZone: "eu-west-1a"
 
     subnet2-public-name: "public-worker-2"
     subnet2-public-cidrBlock: "10.20.2.0/28"
