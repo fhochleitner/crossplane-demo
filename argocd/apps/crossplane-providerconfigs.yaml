@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane-infra
+  name: crossplane-providerconfigs
   namespace: gitops-system
 spec:
   destination:
-    name: ''
+    name: 'crossplane-providerconfigs'
     namespace: crossplane-system
     server: 'https://kubernetes.default.svc'
   source:
-    path: crossplane/provider
+    path: crossplane/providerconfigs
     repoURL: 'git@github.com:fhochleitner/crossplane-demo'
     targetRevision: HEAD
     directory:

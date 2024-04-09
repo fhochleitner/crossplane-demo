@@ -1,0 +1,71 @@
+apiVersion: eks.aws.upbound.io/v1beta1
+kind: Cluster
+metadata:
+  annotations:
+    meta.squer.io/cluster-id: eks/v1beta1/demo-cluster
+    uptest.squer.io/timeout: "2400"
+  labels:
+    testing.squer.io/cluster-name: demo-cluster
+  name: demo-eks-cluster
+spec:
+  providerConfigRef:
+    name: aws-config
+  forProvider:
+    region: eu-west-1
+    vpcConfig:
+      - subnetIdRefs:
+          - name: public-subnet
+          - name: private-subnet
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: VPC
+metadata:
+  name: main-vpc
+  labels:
+    testing.squer.io/vpc-name: "main-vpc"
+spec:
+  providerConfigRef:
+    name: aws-config
+  forProvider:
+    cidrBlock: 10.0.0.0/16
+    region: eu-west-1
+    tags:
+      Name: "MainVPC"
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: public-subnet
+  labels:
+    testing.squer.io/subnet-name: "public-subnet"
+spec:
+  providerConfigRef:
+    name: aws-config
+  forProvider:
+    cidrBlock: 10.0.1.0/24
+    region: eu-west-1
+    tags:
+      Name: "PublicSubnet"
+    mapPublicIpOnLaunch: true
+    vpcIdSelector:
+      matchLabels:
+        testing.squer.io/vpc-name: "main-vpc"
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: private-subnet
+  labels:
+    testing.squer.io/subnet-name: "private-subnet"
+spec:
+  providerConfigRef:
+    name: aws-config
+  forProvider:
+    cidrBlock: 10.0.2.0/24
+    region: eu-west-1
+    tags:
+      Name: "PrivateSubnet"
+    mapPublicIpOnLaunch: true
+    vpcIdSelector:
+      matchLabels:
+        testing.squer.io/vpc-name: "main-vpc"

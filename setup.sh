@@ -16,10 +16,15 @@ if [[ "install" == "$1" ]]; then
   # AWS Credentials
   kubectl create ns crossplane-system
   kubectl create secret generic aws-secret -n crossplane-system --from-file creds=.creds/aws-credentials
+
+  # Install Crossplane
+
   # Install ArgoCD Operator
   helm install -n gitops-system argocd argo/argo-cd --version 6.7.3 --wait --create-namespace
   kubectl apply -f .creds/repo.yaml
   kubectl apply -f argocd/parent-application.yaml
+
+  rm ./install.sh
 
   exit 0
 fi
@@ -38,7 +43,7 @@ fi
 
 if [[ "terminate" == "$1" ]]; then
   # Terminate ArgoCD
-  kill -9 $(cat PIDS)
+  kill -9 "$(cat PIDS)"
   rm PIDS
 
   exit 0
