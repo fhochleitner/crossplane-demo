@@ -8,9 +8,3 @@ metadata:
 spec:
   package: xpkg.upbound.io/upbound/provider-aws:v1.2.1
 ---
-apiVersion: pkg.crossplane.io/v1
-kind: Provider
-metadata:
-  name: crossplane-provider-aws
-spec:
-  package: "public.ecr.aws/awsvijisarathy/crossplane-provider-aws:v0.23.0"
