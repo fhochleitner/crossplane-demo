@@ -7,3 +7,4 @@ metadata:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
   package: xpkg.upbound.io/upbound/provider-aws:v1.2.1
+---
