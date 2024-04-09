@@ -5,7 +5,6 @@ metadata:
   namespace: gitops-system
 spec:
   destination:
-    name: 'crossplane-providerconfigs'
     namespace: crossplane-system
     server: 'https://kubernetes.default.svc'
   source:
