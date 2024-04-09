@@ -16,8 +16,8 @@
 apiVersion: cluster.awsblueprints.io/v1alpha1
 kind: amazonEks
 metadata:
-  name: example-cas
-  namespace: default
+  name: crossplane-eks-cluster
+  namespace: crossplane-system
 spec:
   compositionSelector:
     matchLabels:
@@ -26,12 +26,12 @@ spec:
       awsblueprints.io/subnet-selection: label
       service: eks-cas
   resourceConfig:
-    providerConfigName: aws-provider-config
+    providerConfigName: aws-config
     region: eu-west-1
   parameters:
     # This field tells which role should have admin access to this cluster.
     adminRole: Admin
-    version: "1.24"
+    version: "1.27"
     endpointPrivateAccess: false
     endpointPublicAccess: true
   managedNodeGroups:
